@@ -70,9 +70,9 @@ const SolarBotDashboard = () => {
   };
 
   const GyroscopeDisplay = ({ value, label, color }) => (
-    <div className="text-center">
+    <div className="text-center flex-1 max-w-[80px] lg:max-w-none lg:flex-none">
       <div className="text-xs sm:text-sm lg:text-lg font-bold text-white mb-1 sm:mb-2">{label}</div>
-      <div className="w-14 h-24 sm:w-16 sm:h-28 lg:w-20 lg:h-36 bg-gray-800 rounded-lg relative overflow-hidden mx-auto border-2 border-gray-600">
+      <div className="w-12 h-20 sm:w-14 sm:h-24 lg:w-20 lg:h-36 bg-gray-800 rounded-lg relative overflow-hidden mx-auto border-2 border-gray-600">
         <div 
           className={`absolute bottom-0 left-0 right-0 ${color} transition-all duration-1000 rounded-b`}
           style={{ height: `${Math.max(5, Math.min(95, (value + 15) / 30 * 100))}%` }}
@@ -237,8 +237,8 @@ const SolarBotDashboard = () => {
           {/* Right Column - Gyroscope */}
           <div className="lg:col-span-3">
             <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 border-green-500 shadow-2xl">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6 lg:mb-8 text-center px-2">GYROSCOPE</h2>
-              <div className="flex justify-center items-end gap-2 sm:gap-3 lg:gap-4 h-32 sm:h-36 lg:h-48 mb-4 sm:mb-5 lg:mb-6 overflow-hidden px-2">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6 lg:mb-8 text-center">GYROSCOPE</h2>
+              <div className="flex justify-center lg:justify-between items-end gap-1 sm:gap-2 lg:gap-4 h-32 sm:h-36 lg:h-48 mb-4 sm:mb-5 lg:mb-6 overflow-hidden px-1 lg:px-2">
                 <GyroscopeDisplay value={botData.gyroscope.x} label="X" color="bg-red-500" />
                 <GyroscopeDisplay value={botData.gyroscope.y} label="Y" color="bg-green-500" />
                 <GyroscopeDisplay value={botData.gyroscope.z} label="Z" color="bg-blue-500" />
