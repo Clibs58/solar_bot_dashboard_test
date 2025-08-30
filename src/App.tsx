@@ -71,14 +71,14 @@ const SolarBotDashboard = () => {
 
   const GyroscopeDisplay = ({ value, label, color }) => (
     <div className="text-center">
-      <div className="text-lg sm:text-xl font-bold text-white mb-2">{label}</div>
-      <div className="w-16 sm:w-20 lg:w-24 h-24 sm:h-32 lg:h-48 bg-gray-800 rounded-lg relative overflow-hidden mx-auto border-2 border-gray-600">
+      <div className="text-sm sm:text-lg lg:text-xl font-bold text-white mb-1 sm:mb-2">{label}</div>
+      <div className="w-12 sm:w-16 lg:w-20 h-20 sm:h-24 lg:h-32 bg-gray-800 rounded-lg relative overflow-hidden mx-auto border-2 border-gray-600">
         <div 
           className={`absolute bottom-0 left-0 right-0 ${color} transition-all duration-1000 rounded-b`}
           style={{ height: `${Math.max(5, Math.min(95, (value + 15) / 30 * 100))}%` }}
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-xs sm:text-sm lg:text-lg font-bold text-white drop-shadow-lg">
+          <span className="text-xs sm:text-xs lg:text-sm font-bold text-white drop-shadow-lg">
             {value.toFixed(1)}°
           </span>
         </div>
@@ -238,7 +238,7 @@ const SolarBotDashboard = () => {
           <div className="lg:col-span-3">
             <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 border-green-500 shadow-2xl">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 lg:mb-8 text-center">GYROSCOPE</h2>
-              <div className="flex justify-around items-end h-32 sm:h-48 lg:h-96 mb-4 sm:mb-5 lg:mb-6">
+              <div className="flex justify-around items-end h-32 sm:h-40 lg:h-64 mb-4 sm:mb-5 lg:mb-6 overflow-hidden">
                 <GyroscopeDisplay value={botData.gyroscope.x} label="X" color="bg-red-500" />
                 <GyroscopeDisplay value={botData.gyroscope.y} label="Y" color="bg-green-500" />
                 <GyroscopeDisplay value={botData.gyroscope.z} label="Z" color="bg-blue-500" />
