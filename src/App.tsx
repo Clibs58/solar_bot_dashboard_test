@@ -261,5 +261,3 @@ const SolarBotDashboard = () => {
         {/* Bottom Section - Panels Progress */}
 
 
-        {/* Error Alert Overlay */}
-export default SolarBotDashboard;
