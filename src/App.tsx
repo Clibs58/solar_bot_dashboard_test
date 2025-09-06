@@ -259,20 +259,7 @@ const SolarBotDashboard = () => {
         </div>
 
         {/* Bottom Section - Panels Progress */}
-        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 border-blue-500 shadow-2xl">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">PANELS CLEANED TODAY</h2>
-            <div className="text-right">
-              <div className="text-2xl lg:text-3xl font-bold text-white">{botData.panelsCleanedToday}/{botData.totalPanels}</div>
-            </div>
-          </div>
-          <div className="bg-gray-700 rounded-full h-4">
-            <div 
-              className="bg-gradient-to-r from-blue-500 to-purple-500 h-4 rounded-full transition-all duration-1000"
-              style={{ width: `${(botData.panelsCleanedToday / botData.totalPanels) * 100}%` }}
-            />
-          </div>
-        </div>
+
         {botData.errors.length > 0 && (
           <div className="fixed bottom-2 sm:bottom-4 lg:bottom-8 left-2 sm:left-4 lg:left-8 right-2 sm:right-4 lg:right-8 z-50">
             <div className="bg-red-600 border-4 border-red-400 rounded-2xl lg:rounded-3xl p-4 sm:p-5 lg:p-6 shadow-2xl animate-pulse">
