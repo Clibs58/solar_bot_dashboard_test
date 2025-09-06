@@ -70,15 +70,15 @@ const SolarBotDashboard = () => {
   };
 
   const GyroscopeDisplay = ({ value, label, color }) => (
-    <div className="text-center flex-1 max-w-[80px] lg:max-w-none lg:flex-none">
-      <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 lg:mb-4 drop-shadow-lg">{label}</div>
-      <div className="w-12 h-20 sm:w-14 sm:h-24 lg:w-20 lg:h-36 bg-gray-800 rounded-lg relative overflow-hidden mx-auto border-2 border-gray-600">
+    <div className="text-center">
+      <div className="text-xl font-bold text-white mb-3">{label}</div>
+      <div className="w-16 h-32 bg-gray-800 rounded-lg relative overflow-hidden mx-auto border-2 border-gray-600">
         <div 
-          className={`absolute bottom-0 left-0 right-0 ${color} transition-all duration-1000 rounded-b`}
+          className={`absolute bottom-0 left-0 right-0 ${color} transition-all duration-1000 rounded-b-lg`}
           style={{ height: `${Math.max(5, Math.min(95, (value + 15) / 30 * 100))}%` }}
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-xs lg:text-sm font-bold text-white drop-shadow-lg">
+          <span className="text-sm font-bold text-white drop-shadow-lg">
             {value.toFixed(1)}°
           </span>
         </div>
@@ -235,23 +235,21 @@ const SolarBotDashboard = () => {
 
           {/* Right Column - Gyroscope */}
           <div className="lg:col-span-3">
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 border-green-500 shadow-2xl">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6 lg:mb-8 text-center">GYROSCOPE</h2>
-              <div className="flex justify-center lg:justify-between items-end gap-1 sm:gap-2 lg:gap-4 h-32 sm:h-36 lg:h-48 mb-4 sm:mb-5 lg:mb-6 overflow-hidden px-1 lg:px-2">
-              <div className="flex justify-between items-end mb-4 sm:mb-5 lg:mb-6 px-2 w-full pt-8">
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 border-green-500 shadow-2xl h-full">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-6 text-center">GYROSCOPE</h2>
+              <div className="flex justify-between items-end mb-6 px-4">
                 <GyroscopeDisplay value={botData.gyroscope.x} label="X" color="bg-red-500" />
                 <GyroscopeDisplay value={botData.gyroscope.y} label="Y" color="bg-green-500" />
                 <GyroscopeDisplay value={botData.gyroscope.z} label="Z" color="bg-blue-500" />
               </div>
-              </div>
               <div className="text-center">
-                <div className="text-gray-300 text-sm sm:text-base lg:text-lg mb-1 lg:mb-2">STABILITY</div>
-                <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">
+                <div className="text-gray-300 text-lg mb-2">STABILITY</div>
+                <div className="text-2xl lg:text-3xl font-bold text-white mb-4">
                   {(100 - Math.abs(botData.gyroscope.x + botData.gyroscope.y + botData.gyroscope.z) * 1.5).toFixed(1)}%
                 </div>
-                <div className="mt-2 sm:mt-3 lg:mt-4 bg-gray-700 rounded-full h-2 sm:h-2.5 lg:h-3">
+                <div className="bg-gray-700 rounded-full h-3">
                   <div 
-                    className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 h-2 sm:h-2.5 lg:h-3 rounded-full transition-all duration-1000"
+                    className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 h-3 rounded-full transition-all duration-1000"
                     style={{ width: `${Math.max(0, 100 - Math.abs(botData.gyroscope.x + botData.gyroscope.y + botData.gyroscope.z) * 1.5)}%` }}
                   />
                 </div>
@@ -260,7 +258,21 @@ const SolarBotDashboard = () => {
           </div>
         </div>
 
-        {/* Error Alert Overlay */}
+        {/* Bottom Section - Panels Progress */}
+        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 border-blue-500 shadow-2xl">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">PANELS CLEANED TODAY</h2>
+            <div className="text-right">
+              <div className="text-2xl lg:text-3xl font-bold text-white">{botData.panelsCleanedToday}/{botData.totalPanels}</div>
+            </div>
+          </div>
+          <div className="bg-gray-700 rounded-full h-4">
+            <div 
+              className="bg-gradient-to-r from-blue-500 to-purple-500 h-4 rounded-full transition-all duration-1000"
+              style={{ width: `${(botData.panelsCleanedToday / botData.totalPanels) * 100}%` }}
+            />
+          </div>
+        </div>
         {botData.errors.length > 0 && (
           <div className="fixed bottom-2 sm:bottom-4 lg:bottom-8 left-2 sm:left-4 lg:left-8 right-2 sm:right-4 lg:right-8 z-50">
             <div className="bg-red-600 border-4 border-red-400 rounded-2xl lg:rounded-3xl p-4 sm:p-5 lg:p-6 shadow-2xl animate-pulse">
@@ -281,4 +293,5 @@ const SolarBotDashboard = () => {
   );
 };
 
+        {/* Error Alert Overlay */}
 export default SolarBotDashboard;
