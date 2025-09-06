@@ -71,7 +71,7 @@ const SolarBotDashboard = () => {
 
   const GyroscopeDisplay = ({ value, label, color }) => (
     <div className="text-center">
-      <div className="text-xl font-bold text-white mb-3">{label}</div>
+      <div className="text-2xl lg:text-3xl font-bold text-white mb-4 bg-gray-700 rounded-lg px-3 py-2 border border-gray-500">{label}</div>
       <div className="w-16 h-32 bg-gray-800 rounded-lg relative overflow-hidden mx-auto border-2 border-gray-600">
         <div 
           className={`absolute bottom-0 left-0 right-0 ${color} transition-all duration-1000 rounded-b-lg`}
@@ -235,9 +235,9 @@ const SolarBotDashboard = () => {
 
           {/* Right Column - Gyroscope */}
           <div className="lg:col-span-3">
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 border-green-500 shadow-2xl h-full">
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 border-green-500 shadow-2xl min-h-[500px] lg:min-h-[600px]">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-6 text-center">GYROSCOPE</h2>
-              <div className="flex justify-between items-end mb-6 px-4">
+              <div className="flex justify-between items-end mb-8 px-2">
                 <GyroscopeDisplay value={botData.gyroscope.x} label="X" color="bg-red-500" />
                 <GyroscopeDisplay value={botData.gyroscope.y} label="Y" color="bg-green-500" />
                 <GyroscopeDisplay value={botData.gyroscope.z} label="Z" color="bg-blue-500" />
