@@ -235,7 +235,7 @@ const SolarBotDashboard = () => {
 
           {/* Right Column - Gyroscope */}
           <div className="lg:col-span-3">
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 border-green-500 shadow-2xl min-h-[500px] lg:min-h-[600px]">
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 border-green-500 shadow-2xl h-full">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-6 text-center">GYROSCOPE</h2>
               <div className="flex justify-between items-end mb-8 px-2">
                 <GyroscopeDisplay value={botData.gyroscope.x} label="X" color="bg-red-500" />
