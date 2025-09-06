@@ -119,7 +119,6 @@ const SolarBotDashboard = () => {
             <div className="flex items-center space-x-3 lg:space-x-6">
               <div className="p-2 sm:p-3 lg:p-4 bg-black rounded-xl lg:rounded-2xl border-2 border-gray-600">
                 <img src="/my-logo.png" alt="Logo" className="w-16 h-16" />
-
               </div>
               <div>
                 <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-white mb-1 lg:mb-2">SOLAR BOT</h1>
@@ -243,6 +242,7 @@ const SolarBotDashboard = () => {
                 <GyroscopeDisplay value={botData.gyroscope.x} label="X" color="bg-red-500" />
                 <GyroscopeDisplay value={botData.gyroscope.y} label="Y" color="bg-green-500" />
                 <GyroscopeDisplay value={botData.gyroscope.z} label="Z" color="bg-blue-500" />
+              </div>
               </div>
               <div className="text-center">
                 <div className="text-gray-300 text-sm sm:text-base lg:text-lg mb-1 lg:mb-2">STABILITY</div>
