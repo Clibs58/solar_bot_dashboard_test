@@ -71,7 +71,7 @@ const SolarBotDashboard = () => {
 
   const GyroscopeDisplay = ({ value, label, color }) => (
     <div className="text-center flex-1 max-w-[80px] lg:max-w-none lg:flex-none">
-      <div className="text-xs sm:text-sm lg:text-lg font-bold text-white mb-1 sm:mb-2">{label}</div>
+      <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 lg:mb-4 drop-shadow-lg">{label}</div>
       <div className="w-12 h-20 sm:w-14 sm:h-24 lg:w-20 lg:h-36 bg-gray-800 rounded-lg relative overflow-hidden mx-auto border-2 border-gray-600">
         <div 
           className={`absolute bottom-0 left-0 right-0 ${color} transition-all duration-1000 rounded-b`}
